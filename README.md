@@ -8,3 +8,6 @@ Download all the repo, then right click in server.js file to open integrated ter
 
 ## Dependencies
 Node.js, Inquirer, Express, MYSQL
+
+## Demo
+https://drive.google.com/file/d/1AA97vv4PLU_ujrmREhK7tOsL6dUm8RaU/view
