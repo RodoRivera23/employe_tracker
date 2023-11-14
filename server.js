@@ -1,5 +1,5 @@
 const express = require('express');
-// Import and require mysql2
+const inquirer = require("inquirer");
 const mysql = require('mysql2');
 
 const PORT = process.env.PORT || 3001;
@@ -88,7 +88,7 @@ async function viewADepartments() {
 async function viewRoles() {
     try {
         const query = `
-            SELECT role.title, role.id, department.dep_name, role.salary
+            SELECT role.title, role.id, department.department_name, role.salary
             FROM role
             JOIN department ON role.department_id = department.id
         `;
@@ -104,7 +104,7 @@ async function viewRoles() {
 
 async function viewEmployees() {
     const query = `
-    SELECT e.id, e.first_name, e.last_name, r.title, d.dep_name, r.salary, CONCAT(m.first_name, ' ', m.last_name) AS manager_name
+    SELECT e.id, e.first_name, e.last_name, r.title, d.department_name, r.salary, CONCAT(m.first_name, ' ', m.last_name) AS manager_name
     FROM employee e
     LEFT JOIN role r ON e.role_id = r.id
     LEFT JOIN department d ON r.department_id = d.id
